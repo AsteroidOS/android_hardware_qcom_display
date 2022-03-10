@@ -1623,15 +1623,6 @@ int MDPComp::prepare(hwc_context_t *ctx, hwc_display_contents_1_t* list) {
     }
 
     const int numLayers = ctx->listStats[mDpy].numAppLayers;
-
-    if(property_get("debug.hwc.simulate", property, NULL) > 0) {
-        int currentFlags = atoi(property);
-        if(currentFlags != sSimulationFlags) {
-            sSimulationFlags = currentFlags;
-            ALOGE("%s: Simulation Flag read: 0x%x (%d)", __FUNCTION__,
-                    sSimulationFlags, sSimulationFlags);
-        }
-    }
     // reset PTOR
     if(!mDpy)
         memset(&(ctx->mPtorInfo), 0, sizeof(ctx->mPtorInfo));
