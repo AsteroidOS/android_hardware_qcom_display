@@ -885,19 +885,6 @@ void setListStats(hwc_context_t *ctx,
             ctx->listStats[dpy].extOnlyLayerIndex = (int)i;
         }
     }
-    if(ctx->listStats[dpy].yuvCount > 0) {
-        if (property_get("hw.cabl.yuv", property, NULL) > 0) {
-            if (atoi(property) != 1) {
-                property_set("hw.cabl.yuv", "1");
-            }
-        }
-    } else {
-        if (property_get("hw.cabl.yuv", property, NULL) > 0) {
-            if (atoi(property) != 0) {
-                property_set("hw.cabl.yuv", "0");
-            }
-        }
-    }
 
     //The marking of video begin/end is useful on some targets where we need
     //to have a padding round to be able to shift pipes across mixers.
